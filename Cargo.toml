@@ -1,0 +1,12 @@
+[package]
+name = "pasta"
+version = "0.1.0"
+authors = ["Sam Scott <sam.scott89@gmail.com>"]
+
+[dependencies]
+libc = "*"
+libpasta = { git = "https://github.com/libpasta/libpasta" }
+rpassword = "0.4"
+
+[lib]
+crate-type = ["cdylib", "staticlib"]
