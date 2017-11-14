@@ -4,9 +4,9 @@ version = "0.1.0"
 authors = ["Sam Scott <sam.scott89@gmail.com>"]
 
 [dependencies]
-libc = "*"
+libc = "0.2"
 libpasta = { git = "https://github.com/libpasta/libpasta" }
-rpassword = "0.4"
+rpassword = "2.0"
 
 [lib]
 crate-type = ["cdylib", "staticlib"]
