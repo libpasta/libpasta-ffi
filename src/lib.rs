@@ -30,7 +30,7 @@ pub extern fn free_string(s: *mut c_char) {
 pub extern fn hash_password(password: *const c_char) -> *mut c_char {
     let password = unsafe {
         assert!(!password.is_null());
-        CStr::from_ptr(password).to_str().unwrap().to_owned()
+        CStr::from_ptr(password).to_str().unwrap()
     };
     let output = libpasta::hash_password(password);
     CString::new(output).unwrap().into_raw()
@@ -44,7 +44,7 @@ pub extern "C" fn verify_password(hash: *const c_char, password: *const c_char) 
     };
     let password = unsafe {
         assert!(!password.is_null());
-        CStr::from_ptr(password).to_str().unwrap().to_owned()
+        CStr::from_ptr(password).to_str().unwrap()
     };
     libpasta::verify_password(hash, password)
 }
@@ -57,7 +57,7 @@ pub extern "C" fn verify_password_update_hash(hash: *const c_char, password: *co
     };
     let password = unsafe {
         assert!(!password.is_null());
-        CStr::from_ptr(password).to_str().unwrap().to_owned()
+        CStr::from_ptr(password).to_str().unwrap()
     };
     if libpasta::verify_password_update_hash(&mut new_hash, password) {
         CString::new(new_hash).unwrap().into_raw()
